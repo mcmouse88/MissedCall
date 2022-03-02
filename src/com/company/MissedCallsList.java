@@ -13,17 +13,18 @@ public class MissedCallsList {
         missedCalls.put(time, number);
     }
 
-    @Override
-    public String toString() {
+    public Contact findContact(String number, PhoneBook phoneBook) {
+        return phoneBook.getAllContactInGroup().get(number);
+    }
+
+    public void showMissedCalls(PhoneBook phoneBook) {
         StringBuilder sb = new StringBuilder();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy г. hh:mm:ss");
         for (Map.Entry<LocalDateTime, String> entry : missedCalls.entrySet()) {
-            sb.append(entry.getKey().format(formatter)).append(" -> ").append(findContact(entry.getValue()) == null ? entry.getValue() : findContact(entry.getValue())).append("\n");
+            sb.append(entry.getKey().format(formatter)).append(" -> ")
+                    .append(findContact(entry.getValue(), phoneBook) == null ? entry.getValue() : findContact(entry.getValue(), phoneBook)).append("\n");
         }
-        return sb.toString();
-    }
-
-    public Contact findContact(String number) {
-        return PhoneBook.getAllContactInGroup().get(number);
+        String missCall = sb.toString();
+        System.out.println(missCall);
     }
 }

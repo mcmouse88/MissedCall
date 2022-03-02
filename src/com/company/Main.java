@@ -12,16 +12,20 @@ public class Main {
         MissedCallsList missedCallsList = new MissedCallsList();
         phoneBook.fillPhoneBook();
 
-        System.out.println("Печатается список пропущенных звонков ...");
+        System.out.print("Печатается список пропущенных звонков ");
         missedCallsList.addMissedCall(LocalDateTime.now(), "8 (962) 233-38-09");
         Thread.sleep(2_000 + RAND.nextInt(5_000 - 2_000));
+        System.out.print(".");
         missedCallsList.addMissedCall(LocalDateTime.now(), "8 (909) 787-83-12");
         Thread.sleep(2_000 + RAND.nextInt(5_000 - 2_000));
+        System.out.print(".");
         missedCallsList.addMissedCall(LocalDateTime.now(), "8 (911) 477-26-31");
         Thread.sleep(2_000 + RAND.nextInt(5_000 - 2_000));
+        System.out.print(".\n");
         missedCallsList.addMissedCall(LocalDateTime.now(), "8 (999) 999-99-99");
         Thread.sleep(2_000 + RAND.nextInt(5_000 - 2_000));
         missedCallsList.addMissedCall(LocalDateTime.now(), "8 (988) 888-88-88");
-        System.out.println(missedCallsList);
+
+        missedCallsList.showMissedCalls(phoneBook);
     }
 }

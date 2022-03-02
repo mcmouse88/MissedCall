@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class PhoneBook {
 
-    private static Map<String, Contact> allContactInGroup = new HashMap<>();
+    private Map<String, Contact> allContactInGroup = new HashMap<>();
 
     public void fillPhoneBook() {
         Group family = new Group("Семья");
@@ -26,7 +26,7 @@ public class PhoneBook {
         allContactInGroup.put("8 (933) 333-33-33", new Contact("Lawrence Edward Page", family));
     }
 
-    public static Map<String, Contact> getAllContactInGroup() {
+    public Map<String, Contact> getAllContactInGroup() {
         return allContactInGroup;
     }
 }
